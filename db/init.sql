@@ -1,7 +1,6 @@
-CREATE TABLE IF NOT EXISTS 'users' (
-	'id' int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	'username' varchar(64) NOT NULL
-)
-
-INSERT INTO 'users' ('id' 'username') VALUES
-(1, 'admin');
+CREATE TABLE IF NOT EXISTS "Users" (
+	"Id" serial NOT NULL,
+	"Username" VARCHAR(64) NOT NULL UNIQUE,
+	"Email" VARCHAR(64) NOT NULL UNIQUE,
+	CONSTRAINT "Users_pk" PRIMARY KEY ("Id")
+);
