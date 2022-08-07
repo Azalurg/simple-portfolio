@@ -1,9 +1,9 @@
 # DB
 
-## Example database.env file:
+## Example database.env file
 
-```
-POSTGRES_USER=unicorn_user
-POSTGRES_PASSWORD=magical_password
-POSTGRES_DB=rainbow_database
+```sql
+POSTGRES_USER=admin
+POSTGRES_PASSWORD=admin
+POSTGRES_DB=test
 ```
