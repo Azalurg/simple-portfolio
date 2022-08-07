@@ -8,6 +8,10 @@ api = Api(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:admin@127.0.0.1:5432/test'
 db = SQLAlchemy(app)
 
+user_post_args = reqparse.RequestParser()
+user_post_args.add_argument("Username", type=str, help="Username", required=True)
+user_post_args.add_argument("Email", type=str, help="Email", required=True)
+user_post_args.add_argument("Description", type=str, required=False)
 
 class User(db.Model):
     __tablename__ = 'Users'
@@ -37,7 +41,8 @@ class Users(Resource):
 
     def post(self):
         today = date.today()
-        user = User("Admin", "admin@xd.com", "", today)
+        args = user_post_args.parse_args()
+        user = User(args.Username, args.Email, args.Description, today)
         db.session.add(user)
         db.session.commit()
         return {"message": "Done"}
