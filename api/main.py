@@ -49,6 +49,40 @@ class Users(Resource):
         self.user_post_args.add_argument("Description", type=str, required=False)
 
 
+class Wallets(Resource):
+    wallet_post_args = reqparse.RequestParser()
+
+    class Wallet(db.Model):
+        __tablename__ = 'Wallets'
+        Id = db.Column(db.Integer, primary_key=True)
+        UserId = db.Column(db.Integer)
+        Name = db.Column(db.String(64))
+
+        def __init__(self, user_id, name):
+            self.UserId = user_id
+            self.Name = name
+
+    def get(self):
+        result = self.Wallet.query.all()
+        output = []
+        for wallet in result:
+            new_wallet = {"Name": wallet.Name}
+            output.append(new_wallet)
+
+        return jsonify(output)
+
+    def post(self):
+        args = self.wallet_post_args.parse_args()
+        wallet = self.Wallet(args.UserId, args.Name)
+        db.session.add(wallet)
+        db.session.commit()
+        return {"message": "Done"}
+
+    def __init__(self):
+        self.wallet_post_args.add_argument("UserId", type=int, help="UserId", required=True)
+        self.wallet_post_args.add_argument("Name", type=str, help="Name", required=True)
+
+
 class Transactions(Resource):
     transaction_post_args = reqparse.RequestParser()
 
@@ -112,5 +146,7 @@ class Transactions(Resource):
 
 api.add_resource(Users, "/users")
 api.add_resource(Transactions, "/transactions")
+api.add_resource(Wallets, "/wallets")
+
 if __name__ == "__main__":
     app.run(debug=True)
