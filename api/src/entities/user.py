@@ -1,4 +1,5 @@
 from sqlalchemy import Column, String
+from marshmallow import Schema, fields
 
 from .entity import Entity, Base
 
@@ -10,8 +11,18 @@ class User(Entity, Base):
     Email = Column(String, nullable=False, unique=True)
     Description = Column(String)
 
-    def __init__(self, username, email, description=None):
-        Entity.__init__(self, "script")
+    def __init__(self, username, email, created_by="server", description=None):
+        Entity.__init__(self, created_by)
         self.Username = username
         self.Email = email
         self.Description = description
+
+
+class UserSchema(Schema):
+    Id = fields.Number()
+    Username = fields.Str()
+    Email = fields.Str()
+    Description = fields.Str()
+    CreatedAt = fields.DateTime()
+    UpdatedAt = fields.DateTime()
+    LastUpdatedBy = fields.Str()
