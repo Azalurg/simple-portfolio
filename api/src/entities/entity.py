@@ -3,7 +3,7 @@ from sqlalchemy import create_engine, Column, String, Integer, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-db_url = 'localhost:5432'
+db_url = 'host.docker.internal:5432'
 db_name = 'test'
 db_user = 'admin'
 db_password = 'admin'
