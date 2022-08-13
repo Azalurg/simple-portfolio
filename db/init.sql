@@ -3,7 +3,9 @@ CREATE TABLE IF NOT EXISTS  "Users" (
 	"Username" varchar(64) NOT NULL UNIQUE,
 	"Email" varchar(64) NOT NULL UNIQUE,
 	"Description" varchar(255),
-	"JoiningDate" DATE NOT NULL,
+	"CreatedAt" DATE NOT NULL,
+	"UpdatedAt" DATE,
+	"LastUpdatedBy" varchar(64),
 	CONSTRAINT "Users_pk" PRIMARY KEY ("Id")
 ) WITH (
   OIDS=FALSE

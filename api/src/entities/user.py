@@ -19,10 +19,10 @@ class User(Entity, Base):
 
 
 class UserSchema(Schema):
-    Id = fields.Number()
-    Username = fields.Str()
-    Email = fields.Str()
-    Description = fields.Str()
-    CreatedAt = fields.DateTime()
-    UpdatedAt = fields.DateTime()
-    LastUpdatedBy = fields.Str()
+    id = fields.Number()
+    username = fields.Str()
+    email = fields.Str()
+    description = fields.Str()
+    createdAt = fields.DateTime()
+    updatedAt = fields.DateTime()
+    lastUpdatedBy = fields.Str()
