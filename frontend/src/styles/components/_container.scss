@@ -1,15 +1,17 @@
 .container {
     background-color: $container;
+    width: 90%;
     max-width: 64rem;
     padding: 1rem;
     margin: 3rem 0;
     border: 0 solid #abcdef;
     box-sizing: border-box;
     border-radius: 1.5rem;
+    text-align: justify;
 }
 
-@media screen and (max-width: 1175px) {
-    .container{
-        margin: 1.5rem 1.5rem;
-    }
-}
+// @media screen and (max-width: 1175px) {
+//     .container{
+//         margin: 1.5rem 1.5rem;
+//     }
+// }
