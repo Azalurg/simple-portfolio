@@ -22,6 +22,7 @@ export class MarketComponent implements OnInit {
   public subtitle = "";
   public displayedColumns: string[] = ['position' ,'name', 'current_price', 'price_change_percentage_24h','market_cap'];
   public dataSource: any;
+  public pageSize = 50
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
@@ -37,6 +38,11 @@ export class MarketComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     })
+    
+    if (window.screen.availWidth < 800){
+      this.displayedColumns = this.displayedColumns.slice(1, 3)
+      this.pageSize = 10
+    }
   }
 
   applyFilter(event: Event) {

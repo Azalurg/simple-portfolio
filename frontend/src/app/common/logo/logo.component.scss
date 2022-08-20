@@ -13,3 +13,9 @@ img{
     font-size: 1.55rem;
     letter-spacing: 0.1rem;
 }
+
+@media screen and (max-width: 550px) {
+    .app-logo{
+        display: none;
+    }
+}
