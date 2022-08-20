@@ -1,0 +1,26 @@
+@import 'abstracts/colors';
+
+.app-navbar{
+    position: sticky;
+    top: 0;
+    background-color: $background-alt;
+    margin-bottom: 3rem;
+    padding: 1rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    div{
+        width: 25%;
+    }
+}
+
+.navbar-set{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.login-set {
+    text-align: right;
+}

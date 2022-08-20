@@ -1,0 +1,17 @@
+@import 'abstracts/colors';
+
+body {
+    // background-image: linear-gradient(to left bottom, #922e92, #712e80, #542b6b, #3b2555, #261d3d, #1e2747, #12304f, #003955, #005d75, #00817c, #00a369, #87bf48);
+    background-color: $background;
+    color: $foreground;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: $foreground;
+}
+
+a:hover, a:focus {
+    color: $green;
+}

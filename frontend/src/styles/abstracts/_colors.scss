@@ -1,0 +1,21 @@
+@use 'sass:map';
+@import 'palettes';
+
+$background: map.get($background-palette, 700);
+$background-alt: map.get($background-palette, 600);
+$container: map.get($background-palette, 500);
+$container-alt: blue;
+$foreground: map.get($foreground-palette, 50);
+$foreground-alt: yellow;
+
+$black: #12101d;
+$gray: #455a64;
+$white: #e6e6fa;
+$cyan: #2cbacd;
+$magenta: #ff00ff;
+$yellow: #e9de66;
+$red: #f55145;
+$blue: #37a0f6;
+$orange: #f5c943;
+$purple: #922e92;
+$green: #87bf48;

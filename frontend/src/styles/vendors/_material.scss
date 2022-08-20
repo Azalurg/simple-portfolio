@@ -1,0 +1,26 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use 'abstracts/palettes' as plt;
+@include mat.core();
+
+@function create-color-config($primary, $accent, $warn) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: true,
+    foreground: plt.$dark-palette-foreground,
+    background: plt.$dark-palette-background,
+  );
+}
+
+$primary: mat.define-palette(plt.$green-palette);
+$accent: mat.define-palette(plt.$purple-palette);
+$warn: mat.define-palette(mat.$red-palette);
+
+
+$theme: create-color-config($primary, $accent, $warn);
+
+// $frontend-theme: map-merge($frontend-theme, (background: #000000));
+
+@include mat.all-component-themes($theme);

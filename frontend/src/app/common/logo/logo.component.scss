@@ -1,0 +1,21 @@
+@import 'abstracts/colors';
+
+.app-logo{
+    display: flex;
+    align-items: center;
+}
+
+img{
+    height: 4rem;
+}
+
+.title{
+    font-size: 1.55rem;
+    letter-spacing: 0.1rem;
+}
+
+@media screen and (max-width: 550px) {
+    .app-logo{
+        display: none;
+    }
+}
