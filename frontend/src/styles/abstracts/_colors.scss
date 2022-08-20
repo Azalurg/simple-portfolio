@@ -1,9 +1,12 @@
-$background: #0d1117;
-$background-alt: #161b22;
-$container: #21262d;
-$container-alt: #89929b;
-$foreground: #c6cdd5;
-$foreground: #ecf2f8;
+@use 'sass:map';
+@import 'palettes';
+
+$background: map.get($background-palette, 700);
+$background-alt: map.get($background-palette, 600);
+$container: map.get($background-palette, 500);
+$container-alt: blue;
+$foreground: map.get($foreground-palette, 50);
+$foreground-alt: yellow;
 
 $black: #12101d;
 $gray: #455a64;

@@ -1,7 +1,10 @@
 @import 'abstracts/colors';
 
 .app-navbar{
-    background-color: $background;
+    position: sticky;
+    top: 0;
+    background-color: $background-alt;
+    margin-bottom: 3rem;
     padding: 1rem 1rem;
     display: flex;
     flex-wrap: wrap;
