@@ -11,7 +11,7 @@ import { LogoComponent } from './common/logo/logo.component';
 import { MarketComponent } from './market/market.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatTableModule} from '@angular/material/table'
+import { MaterialModule } from '../material-module';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import {MatTableModule} from '@angular/material/table'
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
