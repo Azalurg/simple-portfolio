@@ -10,8 +10,11 @@ flask = "*"
 marshmallow = "*"
 flask-cors = "*"
 flask-restful = "*"
+jwt = "*"
+werkzeug = "*"
+uuid = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"

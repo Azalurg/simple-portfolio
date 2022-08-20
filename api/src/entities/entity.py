@@ -4,7 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 db_url = 'localhost:5432'
-db_name = 'test'
+db_name = 'portfolio'
 db_user = 'admin'
 db_password = 'admin'
 engine = create_engine(f'postgresql://{db_user}:{db_password}@{db_url}/{db_name}')
