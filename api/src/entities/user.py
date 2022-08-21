@@ -7,9 +7,9 @@ from .entity import Entity, Base
 class User(Entity, Base):
     __tablename__ = 'Users'
 
-    PublicId = Column(String, nullable=False, unique= True)
+    PublicId = Column(String, nullable=False, unique=True)
     Username = Column(String, nullable=False, unique=True)
-    Password = Column(String, nullable=False, unique= True)
+    Password = Column(String, nullable=False, unique=True)
     Email = Column(String, nullable=False, unique=True)
     Description = Column(String)
 

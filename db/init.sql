@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS  "Users" (
 	"Id" serial NOT NULL,
 	"PublicId" varchar(255) NOT NULL UNIQUE,
 	"Username" varchar(64) NOT NULL UNIQUE,
-	"Passworld" varchar(255) NOT NULL,
+	"Password" varchar(255) NOT NULL,
 	"Email" varchar(64) NOT NULL UNIQUE,
 	"Description" varchar(255),
 	"CreatedAt" DATE NOT NULL,

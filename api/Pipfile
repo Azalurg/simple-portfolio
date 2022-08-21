@@ -10,9 +10,9 @@ flask = "*"
 marshmallow = "*"
 flask-cors = "*"
 flask-restful = "*"
-jwt = "*"
 werkzeug = "*"
 uuid = "*"
+pyjwt = "*"
 
 [dev-packages]
 
