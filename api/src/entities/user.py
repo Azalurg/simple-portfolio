@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String
-from marshmallow import Schema, fields
+
 
 from .entity import Entity, Base
 
@@ -21,14 +21,13 @@ class User(Entity, Base):
         self.Email = email
         self.Description = description
 
-
-class UserSchema(Schema):
-    id = fields.Number()
-    publicId = fields.Str()
-    username = fields.Str()
-    password = fields.Str()
-    email = fields.Str()
-    description = fields.Str()
-    createdAt = fields.DateTime()
-    updatedAt = fields.DateTime()
-    lastUpdatedBy = fields.Str()
+    def json(self):
+        return {
+            "PublicId": self.PublicId,
+            "Username": self.Username,
+            "Email": self.Email,
+            "Description": self.Description,
+            "CreatedAt": self.CreatedAt.strftime("%y-%m-%d"),
+            "UpdatedAt": self.UpdatedAt.strftime("%y-%m-%d"),
+            "LastUpdatedBy": self.LastUpdatedBy,
+        }

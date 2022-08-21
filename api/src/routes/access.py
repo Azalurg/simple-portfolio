@@ -4,33 +4,9 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 import datetime
 import uuid
-from functools import wraps
 
 from ..entities.entity import Session
-from ..entities.user import User, UserSchema
-
-
-# def token_required(f):
-#     @wraps(f)
-#     def decorator(*args, **kwargs):
-#
-#         token = None
-#
-#         if 'x-access-tokens' in request.headers:
-#             token = request.headers['x-access-tokens']
-#
-#         if not token:
-#             return jsonify({'message': 'a valid token is missing'})
-#
-#         try:
-#             data = jwt.decode(token, app.config[SECRET_KEY])
-#             current_user = Users.query.filter_by(public_id=data['public_id']).first()
-#         except:
-#             return {'message': 'token is invalid'}
-#
-#             return f(current_user, *args, **kwargs)
-#
-#     return decorator
+from ..entities.user import User
 
 
 class Register(Resource):
@@ -59,7 +35,6 @@ class Register(Resource):
 class Login(Resource):
     def post(self):
         auth = request.get_json()
-        print("XD")
         if not auth or not auth["username"] or not auth["password"]:
             return {'message': "Could not verify"}, 401
 
@@ -69,7 +44,7 @@ class Login(Resource):
 
         if check_password_hash(user.Password, auth["password"]):
             token = jwt.encode(
-                {'public_id': user.PublicId, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)},
+                {'public_id': user.PublicId, 'exp': datetime.datetime.utcnow()+datetime.timedelta(minutes=120)},
                 'SECRET_KEY', algorithm="HS256")
 
             return {'token': token}
