@@ -1,4 +1,5 @@
 from sqlalchemy import Column, String, ForeignKey, Integer, JSON, DateTime
+from datetime import datetime
 
 from .entity import Entity, Base
 
@@ -18,7 +19,7 @@ class Wallet(Entity, Base):
         self.Name = name
         self.State = {}
         self.WrongTransactions = {"transactions": []}
-        self.LastCompilation = None
+        self.LastCompilation = datetime.now()
 
     def json(self):
         return {
@@ -28,7 +29,7 @@ class Wallet(Entity, Base):
             "State": self.State,
             "WrongTransactions": self.WrongTransactions,
             "LastCompilation": self.LastCompilation.strftime("%y-%m-%d"),
-            "CreatedAt": self.State.strftime("%y-%m-%d"),
-            "UpdatedAt": self.WrongTransactions.strftime("%y-%m-%d"),
+            "CreatedAt": self.CreatedAt.strftime("%y-%m-%d"),
+            "UpdatedAt": self.UpdatedAt.strftime("%y-%m-%d"),
             "LastUpdatedBy": self.LastCompilation
         }

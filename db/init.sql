@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS  "Users" (
 	"Description" varchar(255),
 	"Image" varchar(255),
 	"CreatedAt" DATE NOT NULL,
-	"UpdatedAt" DATE,
+	"UpdatedAt" DATE  NOT NULL,
 	"LastUpdatedBy" varchar(63),
 	CONSTRAINT "Users_pk" PRIMARY KEY ("Id")
 ) WITH (
@@ -20,10 +20,10 @@ CREATE TABLE IF NOT EXISTS  "Wallets" (
 	"UserId" varchar(255) NOT NULL,
 	"Name" varchar(63) NOT NULL,
 	"State" json,
-	"WrongTransaction" json,
-	"LastCompilation" DATE,
+	"WrongTransactions" json,
+	"LastCompilation" DATE NOT NULL,
 	"CreatedAt" DATE NOT NULL,
-	"UpdatedAt" DATE,
+	"UpdatedAt" DATE NOT NULL,
 	"LastUpdatedBy" varchar(63),
 	CONSTRAINT "Wallets_pk" PRIMARY KEY ("Id")
 ) WITH (
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS  "Transactions" (
 	"Description" varchar(255),
 	"Date" DATE NOT NULL,
 	"CreatedAt" DATE NOT NULL,
-	"UpdatedAt" DATE,
+	"UpdatedAt" DATE  NOT NULL,
 	"LastUpdatedBy" varchar(63),
 	CONSTRAINT "Transactions_pk" PRIMARY KEY ("Id")
 ) WITH (

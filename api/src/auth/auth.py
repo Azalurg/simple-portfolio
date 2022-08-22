@@ -24,7 +24,7 @@ def token_required(function):
             return {'message': 'token is invalid'}
 
         session = Session()
-        current_user = session.query(User).filter_by(PublicId=data['public_id']).first()
+        current_user = session.query(User).filter_by(Id=data['id']).first()
         session.close()
 
         return function(user=current_user, *args, **kwargs)

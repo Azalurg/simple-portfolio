@@ -13,7 +13,7 @@ class User(Entity, Base):
     Description = Column(String)
     Image = Column(String)
 
-    def __init__(self, username, password, email, image, created_by="server", description=None):
+    def __init__(self, username, password, email, image=None, created_by="server", description=None):
         Entity.__init__(self, created_by)
         self.Username = username
         self.Password = password

@@ -3,7 +3,6 @@ from flask_restful import Resource, reqparse, abort, fields, marshal_with
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 import datetime
-import uuid
 
 from ..entities.entity import Session
 from ..entities.user import User
@@ -19,10 +18,9 @@ class Register(Resource):
         hashed_password = generate_password_hash(data['password'], method='sha256')
 
         new_user = User(
-            public_id=str(uuid.uuid4()),
             username=data['username'],
             password=hashed_password,
-            email=data["email"])
+            email=data['email'])
 
         session = Session()
         session.add(new_user)
@@ -44,7 +42,7 @@ class Login(Resource):
 
         if check_password_hash(user.Password, auth["password"]):
             token = jwt.encode(
-                {'public_id': user.PublicId, 'exp': datetime.datetime.utcnow()+datetime.timedelta(minutes=120)},
+                {'id': user.Id, 'exp': datetime.datetime.utcnow()+datetime.timedelta(minutes=120)},
                 'SECRET_KEY', algorithm="HS256")
 
             return {'token': token}
