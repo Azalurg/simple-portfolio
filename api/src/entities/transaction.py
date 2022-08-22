@@ -18,14 +18,14 @@ class Transaction(Entity, Base):
     Date = Column(DateTime, nullable=False)
 
     def __init__(self, wallet_id, transaction_type, date, buy_amount=None, buy_cur=None, sell_amount=None,
-                 sell_curr=None, commission_amount=None, commission_curr=None, description=None):
+                 sell_cur=None, commission_amount=None, commission_curr=None, description=None):
         Entity.__init__(self, "script")
         self.WalletId = wallet_id
         self.Type = transaction_type
         self.BuyAmount = buy_amount
         self.BuyCur = buy_cur
         self.SellAmount = sell_amount
-        self.SellCur = sell_curr
+        self.SellCur = sell_cur
         self.CommissionAmount = commission_amount
         self.CommissionCur = commission_curr
         self.Description = description
