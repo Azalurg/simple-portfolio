@@ -16,11 +16,7 @@
 }
 
 .navbar-set{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.login-set {
-    text-align: right;
+    a{
+        margin-left: 2rem;
+    }
 }

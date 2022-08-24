@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialogRef: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  login(){
+    this.dialogRef.open(LoginComponent)
+  }
+
+  register(){
+    this.dialogRef.open(RegisterComponent)
+  }
 }
