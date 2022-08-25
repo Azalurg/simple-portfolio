@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { CoingeckoService } from '../services/coingecko.service';
+import { CoingeckoService } from '../services/api/coingecko/coingecko.service';
 import { MatPaginator, MatPaginatorIntl} from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { ChangeDetectorRef } from '@angular/core';
@@ -27,12 +27,12 @@ export class MarketComponent implements OnInit {
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
   
-  constructor(private service:CoingeckoService) {}
+  constructor(private coingeckoApi: CoingeckoService) {}
 
   ngOnInit(): void {
     this.choseSubtitle();
 
-    this.service.getCoins('usd', 100).subscribe(response => {
+    this.coingeckoApi.getCoins('usd', 100).subscribe(response => {
       const data: any = response 
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;

@@ -7,28 +7,28 @@
             <table class="example-full-width" cellspacing="0">
                 <tr>
                     <td>
-                        <mat-form-field class="example-full-width">
+                        <mat-form-field class="example-full-width" color="accent">
                             <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
                         </mat-form-field>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <mat-form-field class="example-full-width">
+                        <mat-form-field class="example-full-width" color="accent">
                             <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
                         </mat-form-field>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <mat-form-field class="example-full-width">
+                        <mat-form-field class="example-full-width" color="accent">
                             <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
                         </mat-form-field>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <mat-form-field class="example-full-width">
+                        <mat-form-field class="example-full-width" color="accent">
                             <input matInput placeholder="Repeat Password" [(ngModel)]="password2" type="password" name="password2" required>
                         </mat-form-field>
                     </td>
@@ -37,6 +37,6 @@
         </form>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-raised-button (click)="register()" color="primary">Login</button>
+        <button mat-raised-button (click)="register()" color="accent">Register</button>
     </mat-card-actions>
 </mat-card>
