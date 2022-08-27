@@ -1,13 +1,18 @@
-<div class="app-navbar">
-    <div class="">
+<div class="app-navbar" ng-app="">
+    <section class="navbar-logo">
         <app-logo></app-logo>
-    </div>
-    <div class="navbar-set">
+    </section>
+    <section class="navbar-set">
         <a href="">Home</a>
         <a href="market">Market</a>
-    </div>
-    <section class="login-set">
+        <a href="wallets" [hidden]="!isLogin()">Wallets</a>
+        <a href="profile" [hidden]="!isLogin()">Profile</a>
+    </section>
+    <section class="login-set" [hidden]="isLogin()">
         <button mat-raised-button color="primary" (click)="login()">Login</button>
         <button mat-raised-button color="accent" (click)="register()">Register</button>
+    </section>
+    <section class="login-set" [hidden]="!isLogin()">
+        <button mat-raised-button color="accent" (click)="logout()">Logout</button>
     </section>
 </div>

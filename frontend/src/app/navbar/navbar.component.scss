@@ -10,13 +10,28 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    div{
-        width: 25%;
+    section{
+        width: 30%;
     }
 }
 
 .navbar-set{
-    a{
-        margin-left: 2rem;
-    }
+    display: flex;
+    justify-content: space-evenly;
 }
+
+.login-set{
+    text-align: right;
+}
+
+@media screen and (max-width: 880px) {
+        .app-navbar{
+            flex-direction: column;
+
+            .navbar-logo{
+                display: none;
+            }
+            
+            section{width: 100%;}
+        }
+    }

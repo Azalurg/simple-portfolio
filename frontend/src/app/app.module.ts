@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomMaterialModule } from './common/material-modules/material-modules.module';
+import { ToastrModule } from 'ngx-toastr';
+import { CookieService } from 'ngx-cookie-service';
 
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -35,9 +37,17 @@ import { RegisterComponent } from './navbar/register/register.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      progressBar:true,
+      progressAnimation: 'decreasing',
+      preventDuplicates: true
+    })
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
