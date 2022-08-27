@@ -20,6 +20,7 @@ import { LoginComponent } from './navbar/login/login.component';
 import { RegisterComponent } from './navbar/register/register.component';
 import { WalletsComponent } from './wallets/wallets.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CreateWalletComponent } from './wallets/create-wallet/create-wallet.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     RegisterComponent,
     WalletsComponent,
-    ProfileComponent
+    ProfileComponent,
+    CreateWalletComponent
   ],
   imports: [
     BrowserModule,

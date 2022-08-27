@@ -1,1 +1,10 @@
-<p>wallets works!</p>
+<div class="wallets">
+    <div class="title">Wallets</div>
+    <button mat-raised-button color="primary" (click)="createWallet()">Create new wallet</button>
+
+    <section *ngFor="let wallet of wallets">
+        <div>
+            {{wallet.Name}}
+        </div>
+    </section>
+</div>

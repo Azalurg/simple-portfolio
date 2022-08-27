@@ -21,4 +21,23 @@ export class OriginAPIService {
     password = Md5.hashStr(password)
     return this.httpClient.post(url, {"username": username, "password": password}, {observe: "response", responseType: "json"})
   }
+
+  getUser(token: string){
+    const url = 'http://127.0.0.1:5000/user'
+    return this.httpClient.get(url,{headers: {'x-access-tokens': token }, observe: "response", responseType: "json"})
+  }
+
+  getWallets(token: string){
+    const url = 'http://127.0.0.1:5000/wallets'
+    return this.httpClient.get(url,{headers: {'x-access-tokens': token }, observe: "response", responseType: "json"})
+  }
+
+  createWallets(token: string, name: string){
+    const url = 'http://127.0.0.1:5000/wallets'
+    return this.httpClient.post(url, {name}, {headers: {'x-access-tokens': token }, observe: "response", responseType: "json"})
+  }
+
+  getTransactions(){
+    const url = 'http://127.0.0.1:5000/transactions'
+  }
 }

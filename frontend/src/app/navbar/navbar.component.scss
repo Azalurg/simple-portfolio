@@ -10,18 +10,21 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    section{
-        width: 30%;
-    }
 }
 
 .navbar-set{
     display: flex;
     justify-content: space-evenly;
+    flex: 2;
+}
+
+.navbar-logo{
+    flex: 1;
 }
 
 .login-set{
     text-align: right;
+    flex: 1;
 }
 
 @media screen and (max-width: 880px) {
