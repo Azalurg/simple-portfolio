@@ -18,6 +18,8 @@ import { LogoComponent } from './common/logo/logo.component';
 import { MarketComponent } from './market/market.component';
 import { LoginComponent } from './navbar/login/login.component';
 import { RegisterComponent } from './navbar/register/register.component';
+import { WalletsComponent } from './wallets/wallets.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { RegisterComponent } from './navbar/register/register.component';
     LogoComponent,
     MarketComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    WalletsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
