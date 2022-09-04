@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CoingeckoService {
+  
   constructor(private httpClient: HttpClient) { }
 
   getCoins(vs_currency: string = "usd", amount: number = 100, pages: number = 1, price_change_percentage: string = '1h, 24h, 7d') {

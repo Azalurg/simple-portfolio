@@ -5,22 +5,35 @@
     top: 0;
     background-color: $background-alt;
     margin-bottom: 3rem;
-    padding: 1rem 1rem;
+    padding: 0.5rem;
+}
+
+.navbar-wrapper{
+    max-width: 96rem;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    div{
-        width: 25%;
-    }
 }
 
 .navbar-set{
     display: flex;
-    align-items: center;
     justify-content: space-evenly;
+    flex: 2;
 }
 
-.login-set {
+.navbar-logo{
+    flex: 1;
+}
+
+.login-set{
     text-align: right;
+    flex: 1;
+}
+
+@media screen and (max-width: 880px) {
+    .navbar-logo{
+        display: none;
+    }     
 }
