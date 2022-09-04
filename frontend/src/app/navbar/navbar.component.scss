@@ -5,7 +5,12 @@
     top: 0;
     background-color: $background-alt;
     margin-bottom: 3rem;
-    padding: 1rem 1rem;
+    padding: 0.5rem;
+}
+
+.navbar-wrapper{
+    max-width: 96rem;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -28,13 +33,7 @@
 }
 
 @media screen and (max-width: 880px) {
-        .app-navbar{
-            flex-direction: column;
-
-            .navbar-logo{
-                display: none;
-            }
-            
-            section{width: 100%;}
-        }
-    }
+    .navbar-logo{
+        display: none;
+    }     
+}

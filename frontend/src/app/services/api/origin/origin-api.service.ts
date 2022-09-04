@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Md5} from 'ts-md5'
+import { Md5 } from 'ts-md5'
 
 @Injectable({
   providedIn: 'root'
@@ -25,16 +25,6 @@ export class OriginAPIService {
   getUser(token: string){
     const url = 'http://127.0.0.1:5000/user'
     return this.httpClient.get(url,{headers: {'x-access-tokens': token }, observe: "response", responseType: "json"})
-  }
-
-  getWallets(token: string){
-    const url = 'http://127.0.0.1:5000/wallets'
-    return this.httpClient.get(url,{headers: {'x-access-tokens': token }, observe: "response", responseType: "json"})
-  }
-
-  createWallets(token: string, name: string){
-    const url = 'http://127.0.0.1:5000/wallets'
-    return this.httpClient.post(url, {name}, {headers: {'x-access-tokens': token }, observe: "response", responseType: "json"})
   }
 
   getTransactions(){

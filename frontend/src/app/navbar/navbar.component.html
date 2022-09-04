@@ -1,18 +1,21 @@
 <div class="app-navbar" ng-app="">
-    <section class="navbar-logo">
-        <app-logo></app-logo>
-    </section>
-    <section class="navbar-set">
-        <a href="">Home</a>
-        <a href="market">Market</a>
-        <a href="wallets" [hidden]="!isLogin()">Wallets</a>
-        <a href="profile" [hidden]="!isLogin()">Profile</a>
-    </section>
-    <section class="login-set" [hidden]="isLogin()">
-        <button mat-raised-button color="primary" (click)="login()">Login</button>
-        <button mat-raised-button color="accent" (click)="register()">Register</button>
-    </section>
-    <section class="login-set" [hidden]="!isLogin()">
-        <button mat-raised-button color="accent" (click)="logout()">Logout</button>
-    </section>
+    <div class="navbar-wrapper">
+        <section class="navbar-logo">
+            <app-logo></app-logo>
+        </section>
+        <section class="navbar-set">
+            <a href="">Home</a>
+            <a href="market">Market</a>
+            <a href="summary" [hidden]="!isLogin()">Summary</a>
+            <a href="transactions" [hidden]="!isLogin()">Transactions</a>
+            <a href="profile" [hidden]="!isLogin()">Profile</a>
+        </section>
+        <section class="login-set" [hidden]="isLogin()">
+            <button mat-raised-button color="primary" (click)="login()">Login</button>
+            <button mat-raised-button color="accent" (click)="register()">Register</button>
+        </section>
+        <section class="login-set" [hidden]="!isLogin()">
+            <button mat-raised-button color="accent" (click)="logout()">Logout</button>
+        </section>
+    </div>
 </div>

@@ -18,9 +18,7 @@ import { LogoComponent } from './common/logo/logo.component';
 import { MarketComponent } from './market/market.component';
 import { LoginComponent } from './navbar/login/login.component';
 import { RegisterComponent } from './navbar/register/register.component';
-import { WalletsComponent } from './wallets/wallets.component';
 import { ProfileComponent } from './profile/profile.component';
-import { CreateWalletComponent } from './wallets/create-wallet/create-wallet.component';
 
 @NgModule({
   declarations: [
@@ -32,9 +30,7 @@ import { CreateWalletComponent } from './wallets/create-wallet/create-wallet.com
     MarketComponent,
     LoginComponent,
     RegisterComponent,
-    WalletsComponent,
     ProfileComponent,
-    CreateWalletComponent
   ],
   imports: [
     BrowserModule,

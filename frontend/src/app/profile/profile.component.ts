@@ -33,6 +33,8 @@ export class ProfileComponent implements OnInit {
           this.router.navigate(['/'])
         }
       })
+    } else {
+      this.router.navigate(['/'])
     }
   }
 

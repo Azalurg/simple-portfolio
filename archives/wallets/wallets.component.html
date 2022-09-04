@@ -1,0 +1,18 @@
+<div class="wallets center">
+    <div class="title">Wallets</div>
+    <section class="container">
+        <button mat-raised-button color="primary" (click)="createWallet()">Create new wallet</button>
+    </section>
+
+    <!-- <section class="container" *ngIf="selectedValue">
+        <p> Wallet: {{selectedWallet.Name}} </p>
+        <button (click)="getWalletData(selectedValue)">Click</button>
+    </section> -->
+    <div *ngFor="let wallet of wallets">
+        <section class="container">
+            <div class="subtitle">
+                <a href='wallets/{{wallet.Id}}'>{{wallet.Name}}</a>
+            </div>
+        </section>
+    </div>
+</div>
