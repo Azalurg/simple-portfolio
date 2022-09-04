@@ -27,7 +27,8 @@ export class OriginAPIService {
     return this.httpClient.get(url,{headers: {'x-access-tokens': token }, observe: "response", responseType: "json"})
   }
 
-  getTransactions(){
+  getTransactions(token: string){
     const url = 'http://127.0.0.1:5000/transactions'
+    return this.httpClient.get(url, {headers: {'x-access-tokens': token }, observe: "response", responseType: "json"})
   }
 }

@@ -12,7 +12,7 @@ import { Router } from "@angular/router"
 })
 export class ProfileComponent implements OnInit {
 
-  private token: string | undefined;
+  private token: string;
   public user: any
 
   constructor(

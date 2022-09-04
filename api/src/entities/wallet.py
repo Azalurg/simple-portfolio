@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, ForeignKey, Integer, JSON, DateTime
+from sqlalchemy import Column, String, ForeignKey, Integer, DateTime
 from datetime import datetime
 
 from .entity import Entity, Base
@@ -9,25 +9,20 @@ class Wallet(Entity, Base):
 
     UserId = Column(String, ForeignKey('Users.Id'))
     Name = Column(String, nullable=False, unique=True)
-    State = Column(JSON)
-    WrongTransactions = Column(JSON)
-    LastCompilation = Column(DateTime)
+    BaseCurrency = Column(String, nullable=False)
 
     def __init__(self, user_id, name):
         Entity.__init__(self, "script")
         self.UserId = user_id
         self.Name = name
-        self.State = {}
-        self.WrongTransactions = {"transactions": []}
-        self.LastCompilation = datetime.now()
+        self.BaseCurrency = "USD"
 
     def json(self):
         return {
             "Id": self.Id,
             "UserId": self.UserId,
             "Name": self.Name,
-            "State": self.State,
-            "WrongTransactions": self.WrongTransactions,
+            "BaseCurrency": self.BaseCurrency,
             "LastCompilation": self.LastCompilation.strftime("%y-%m-%d"),
             "CreatedAt": self.CreatedAt.strftime("%y-%m-%d"),
             "UpdatedAt": self.UpdatedAt.strftime("%y-%m-%d"),

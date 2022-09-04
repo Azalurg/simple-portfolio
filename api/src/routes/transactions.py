@@ -12,16 +12,28 @@ from ..common.check_user import check_user
 
 class Transactions(Resource):
 
+    # @token_required
+    # def get(self, user=None):
+    #     session = Session()
+    #     wallet_id = request.headers['wallet-id']
+    #     if not check_user(user.Id, wallet_id):
+    #         return {'message': 'It is not your wallet'}
+
+    #     transactions = session.query(Transaction).filter_by(WalletId=wallet_id).all()
+    #     session.close()
+
+    #     transactions_list = []
+    #     for transaction in transactions:
+    #         transactions_list.append(transaction.json())
+
+    #     return jsonify(transactions_list)
+
     @token_required
     def get(self, user=None):
         session = Session()
-        wallet_id = request.headers['wallet-id']
-        if not check_user(user.Id, wallet_id):
-            return {'message': 'It is not your wallet'}
-
-        transactions = session.query(Transaction).filter_by(WalletId=wallet_id).all()
+        transactions = session.query(Transaction).join(Wallet).join(User).filter(User.Id == user.Id).all()
         session.close()
-
+        
         transactions_list = []
         for transaction in transactions:
             transactions_list.append(transaction.json())

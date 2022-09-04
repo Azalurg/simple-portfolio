@@ -18,7 +18,7 @@ Base.metadata.create_all(engine)
 api.add_resource(Register, "/register")
 api.add_resource(Login, "/login")
 api.add_resource(Users, "/user")
-api.add_resource(Wallets, "/wallets")
+# api.add_resource(Wallets, "/wallets")
 api.add_resource(Transactions, "/transactions")
 
 if __name__ == "__main__":

@@ -7,17 +7,18 @@ class Transaction(Entity, Base):
     __tablename__ = 'Transactions'
 
     WalletId = Column(String, ForeignKey('Wallets.Id'), nullable=False)
-    Type = Column(String, nullable=False)
+    Type = Column(String(31), nullable=False)
     BuyAmount = Column(Float)
-    BuyCur = Column(String(16))
+    BuyCur = Column(String(15))
     SellAmount = Column(Float)
-    SellCur = Column(String(16))
+    SellCur = Column(String(15))
     CommissionAmount = Column(Float)
-    CommissionCur = Column(String(16))
+    CommissionCur = Column(String(15))
     Description = Column(String)
     Date = Column(DateTime, nullable=False)
+    Api = Column(String(15), nullable=False)
 
-    def __init__(self, wallet_id, transaction_type, date, buy_amount=None, buy_cur=None, sell_amount=None,
+    def __init__(self, wallet_id, transaction_type, date, api, buy_amount=None, buy_cur=None, sell_amount=None,
                  sell_cur=None, commission_amount=None, commission_curr=None, description=None):
         Entity.__init__(self, "script")
         self.WalletId = wallet_id
@@ -30,6 +31,7 @@ class Transaction(Entity, Base):
         self.CommissionCur = commission_curr
         self.Description = description
         self.Date = date
+        self.Api = api
 
     def json(self):
         return {
@@ -44,6 +46,7 @@ class Transaction(Entity, Base):
             "CommissionCur": self.CommissionCur,
             "Description": self.Description,
             "Date": self.Date.strftime("%y-%m-%d"),
+            "Api": self.Api,
             "CreatedAt": self.CreatedAt.strftime("%y-%m-%d"),
             "UpdatedAt": self.UpdatedAt.strftime("%y-%m-%d"),
             "LastUpdatedBy": self.LastUpdatedBy,

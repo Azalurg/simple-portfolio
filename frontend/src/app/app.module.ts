@@ -19,6 +19,7 @@ import { MarketComponent } from './market/market.component';
 import { LoginComponent } from './navbar/login/login.component';
 import { RegisterComponent } from './navbar/register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    TransactionsComponent,
   ],
   imports: [
     BrowserModule,

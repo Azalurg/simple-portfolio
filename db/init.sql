@@ -19,9 +19,7 @@ CREATE TABLE IF NOT EXISTS  "Wallets" (
 	"Id" varchar(255) NOT NULL,
 	"UserId" varchar(255) NOT NULL,
 	"Name" varchar(63) NOT NULL,
-	"State" json,
-	"WrongTransactions" json,
-	"LastCompilation" DATE NOT NULL,
+	"BaseCurrency" varchar(15) NOT NULL DEFAULT 'USD',
 	"CreatedAt" DATE NOT NULL,
 	"UpdatedAt" DATE NOT NULL,
 	"LastUpdatedBy" varchar(63),
@@ -32,14 +30,14 @@ CREATE TABLE IF NOT EXISTS  "Wallets" (
 
 
 
---CREATE TABLE IF NOT EXISTS  "Settings" (
---	"Id" varchar(255) NOT NULL,
---	"UserId" varchar(255) NOT NULL UNIQUE,
---	"BaseCurrency" varchar(16) NOT NULL DEFAULT 'USD',
---	CONSTRAINT "Settings_pk" PRIMARY KEY ("Id")
---) WITH (
+-- CREATE TABLE IF NOT EXISTS  "Settings" (
+-- 	"Id" varchar(255) NOT NULL,
+-- 	"UserId" varchar(255) NOT NULL UNIQUE,
+-- 	"BaseCurrency" varchar(16) NOT NULL DEFAULT 'USD',
+-- 	CONSTRAINT "Settings_pk" PRIMARY KEY ("Id")
+-- ) WITH (
 --  OIDS=FALSE
---);
+-- );
 
 
 
@@ -55,6 +53,7 @@ CREATE TABLE IF NOT EXISTS  "Transactions" (
 	"CommissionCur" varchar(15),
 	"Description" varchar(255),
 	"Date" DATE NOT NULL,
+	"Api" varchar(15) NOT NULL,
 	"CreatedAt" DATE NOT NULL,
 	"UpdatedAt" DATE  NOT NULL,
 	"LastUpdatedBy" varchar(63),
