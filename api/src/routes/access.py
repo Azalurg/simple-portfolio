@@ -29,6 +29,7 @@ class Register(Resource):
         # user_id = session.query(User).filter_by(Username=data['username']).first().Id
         user_id = new_user.Id
         new_wallet=Wallet(user_id, "main")
+        session.add(new_wallet)
         session.commit()
         session.close()
 

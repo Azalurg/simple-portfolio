@@ -31,9 +31,9 @@ class Transactions(Resource):
     @token_required
     def get(self, user=None):
         session = Session()
-        transactions = session.query(Wallet).filter_by(UserId = user_id).join(Transaction, WalletId = Wallet.Id)
+        transactions = session.query(Transaction).join(Wallet).join(User).filter(User.Id == user.Id).all()
         session.close()
-
+        
         transactions_list = []
         for transaction in transactions:
             transactions_list.append(transaction.json())
